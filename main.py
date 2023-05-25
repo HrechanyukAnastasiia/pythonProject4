@@ -6,6 +6,11 @@ response = requests.get('https://weather.com/uk-UA/weather/'
 if response.status_code == 200:
     soup = BeautifulSoup(response.text, features= "html.parser")
     city = soup.find('h1',{"class":"CurrentConditions--location--1YWj_"})
+    weather = soup.find('span', class_="CurrentConditions--tempValue--MHmYY")
     if city:
         city_name = city.text.strip()
-        print("Місто не знайдено")
+        weather = weather.text.strip()
+            print(city_name)
+            print(f"Температура - {weather}")
+        else:
+            print("Мiсто не знайдено")
