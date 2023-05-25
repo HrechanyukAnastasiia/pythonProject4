@@ -14,3 +14,5 @@ if response.status_code == 200:
             print(f"Температура - {weather}")
         else:
             print("Мiсто не знайдено")
+except:
+    print("Немає пiдключення")
